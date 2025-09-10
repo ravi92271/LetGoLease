@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const IMAGES = [
@@ -16,26 +17,26 @@ function ImageCarousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setImage((prevImage) => (prevImage + 1) % IMAGES.length);
+      setImage((prev) => (prev + 1) % IMAGES.length);
     }, 5300);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex relative w-[600px] h-[400px] overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full max-w-2xl aspect-[3/2] overflow-hidden rounded-lg shadow-lg">
       {IMAGES.map((src, index) => (
         <div
           key={index + src}
-          className={`${
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             index === image ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-1000 ease-in-out absolute`}
+          }`}
         >
           <Image
             src={src}
             alt={`Carousel Image ${index + 1}`}
-            width={600}
-            height={400}
-            className="scale-100 animate-kenburns"
+            fill
+            priority={index === 0}
+            className="object-cover animate-kenburns"
           />
         </div>
       ))}
@@ -46,50 +47,79 @@ function ImageCarousel() {
 export default function Home() {
   return (
     <main>
-      {/* Header */}
-      <header className="flex flex-row items-center px-4 py-2">
-        <Image
-          src="" //No logo yet
-          alt="Leaser Logo"
-          width={100}
-          height={100}
-          className="rounded-full justify-left"
-        />
-        <button className="bg-brightpink rounded-full px-2">Login</button>
-      </header>
+      <div className="max-w-[1400px] mx-auto px-6">
+        {/* Header */}
+        <header className="flex items-center justify-between py-4">
+          <Image
+            src="" // TODO: add logo path
+            alt="Leaser Logo"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
+          <Link href="/login">
+            <button className="bg-brightpink text-white font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
+              Login
+            </button>
+          </Link>
+        </header>
 
-      {/* Hero Section */}
-      <section className="flex min-h-screen items-start px-6 pt-20 lg:translate-x-30">
-        {/* Wrapper with max width */}
-        <div className="flex w-full max-w-7xl justify-between gap-20">
-          {/* Text Section */}
-          <div className="flex flex-col max-w-mg space-y-5">
-            <h1 className="text-4xl font-semibold">
-              Student Lease Transfers, Made Simple
-            </h1>
-            <p className="text-lg">
-              Find a subletter or take over a lease in minutes—student-only,
-              verified.
-            </p>
-            <nav className="flex space-x-4">
-              <button className="font-medium bg-brightpink rounded-full px-7">
-                Get Started
-              </button>
-            </nav>
+        {/* Hero Section */}
+        <section className="py-12 md:pt-12 md:pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Text Section */}
+            <div className="flex flex-col items-center max-w-[55ch] space-y-5">
+              <h1 className="text-4xl font-semibold">
+                Student Lease Transfers, Made Simple
+              </h1>
+              <p className="text-lg">
+                Find a subletter or take over a lease in minutes—student-only,
+                verified.
+              </p>
+              <Link href="/main" className="flex space-x-4">
+                <button className="font-medium bg-brightpink text-white cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
+                  Get Started
+                </button>
+              </Link>
+            </div>
+
+            {/* Image Carousel */}
+            <div className="w-full">
+              <ImageCarousel />
+            </div>
           </div>
-          {/* Image Carousel */}
-          <div className="flex-1 max-w-2xl">
-            <ImageCarousel />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Footer */}
-      <footer>
-        <ul></ul>
+      <footer className="bg-yinmnblue py-13">
+        <div className="flex items-center justify-between max-w-[1400px] mx-auto px-6">
+          <div>
+            <ul>
+              <h3 className="text-white font-extrabold text-xl">LetGoLease</h3>
+              <p className="text-white">Student Lease Transfers, Made Simple</p>
+              <p className="text-white">
+                &copy; 2025 LetGoLease. All rights reserved.
+              </p>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white mb-2">Legal</h3>
+            <ul className="list-disc list-inside marker:text-white">
+              <li>
+                <Link href="#" className="hover:underline text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline text-white">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </footer>
     </main>
   );
 }
-// Welcome Message // Moving images // Login Button //
-// Example listings below // Footer
