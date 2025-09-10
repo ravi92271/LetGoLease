@@ -1,103 +1,125 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const IMAGES = [
+  "/portal_images/apartment1.jpg",
+  "/portal_images/apartment2.JPG",
+  "/portal_images/apartment3.JPG",
+  "/portal_images/apartment4.JPG",
+  "/portal_images/apartment5.JPG",
+  "/portal_images/apartment6.JPG",
+] as const;
+
+function ImageCarousel() {
+  const [image, setImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImage((prev) => (prev + 1) % IMAGES.length);
+    }, 5300);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-2xl aspect-[3/2] overflow-hidden rounded-lg shadow-lg">
+      {IMAGES.map((src, index) => (
+        <div
+          key={index + src}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === image ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={src}
+            alt={`Carousel Image ${index + 1}`}
+            fill
+            priority={index === 0}
+            className="object-cover animate-kenburns"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main>
+      <div className="max-w-[1400px] mx-auto px-6">
+        {/* Header */}
+        <header className="flex items-center justify-between py-4">
+          <Image
+            src="" // TODO: add logo path
+            alt="Leaser Logo"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
+          <Link href="/login">
+            <button className="bg-brightpink text-white font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
+              Login
+            </button>
+          </Link>
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Hero Section */}
+        <section className="py-12 md:pt-12 md:pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Text Section */}
+            <div className="flex flex-col items-center max-w-[55ch] space-y-5">
+              <h1 className="text-4xl font-semibold">
+                Student Lease Transfers, Made Simple
+              </h1>
+              <p className="text-lg">
+                Find a subletter or take over a lease in minutes—student-only,
+                verified.
+              </p>
+              <Link href="/main" className="flex space-x-4">
+                <button className="font-medium bg-brightpink text-white cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
+                  Get Started
+                </button>
+              </Link>
+            </div>
+
+            {/* Image Carousel */}
+            <div className="w-full">
+              <ImageCarousel />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-yinmnblue py-13">
+        <div className="flex items-center justify-between max-w-[1400px] mx-auto px-6">
+          <div>
+            <ul>
+              <h3 className="text-white font-extrabold text-xl">LetGoLease</h3>
+              <p className="text-white">Student Lease Transfers, Made Simple</p>
+              <p className="text-white">
+                &copy; 2025 LetGoLease. All rights reserved.
+              </p>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white mb-2">Legal</h3>
+            <ul className="list-disc list-inside marker:text-white">
+              <li>
+                <Link href="#" className="hover:underline text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline text-white">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
-    </div>
+    </main>
   );
 }
