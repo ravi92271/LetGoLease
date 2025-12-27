@@ -46,19 +46,19 @@ function ImageCarousel() {
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-babypowder">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <header className="flex items-center justify-between py-4">
           <Image
-            src="" // TODO: add logo path
+            src="/portal_images/apartment1.jpg" // TODO: add logo path
             alt="Leaser Logo"
-            width={100}
-            height={100}
+            width={75}
+            height={75}
             className="rounded-full"
           />
           <Link href="/login">
-            <button className="bg-brightpink text-white font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
+            <button className="bg-brightpink text-babypowder font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
               Login
             </button>
           </Link>
@@ -77,7 +77,7 @@ export default function Home() {
                 verified.
               </p>
               <Link href="/main" className="flex space-x-4">
-                <button className="font-medium bg-brightpink text-white cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
+                <button className="font-medium bg-brightpink text-babypowder cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
                   Get Started
                 </button>
               </Link>
@@ -96,23 +96,27 @@ export default function Home() {
         <div className="flex items-center justify-between max-w-[1400px] mx-auto px-6">
           <div>
             <ul>
-              <h3 className="text-white font-extrabold text-xl">LetGoLease</h3>
-              <p className="text-white">Student Lease Transfers, Made Simple</p>
-              <p className="text-white">
+              <h3 className="text-babypowder font-extrabold text-xl">
+                LetGoLease
+              </h3>
+              <p className="text-babypowder">
+                Student Lease Transfers, Made Simple
+              </p>
+              <p className="text-babypowder">
                 &copy; 2025 LetGoLease. All rights reserved.
               </p>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-white mb-2">Legal</h3>
-            <ul className="list-disc list-inside marker:text-white">
+            <h3 className="font-semibold text-babypowder mb-2">Legal</h3>
+            <ul className="list-disc list-inside marker:text-babypowder">
               <li>
-                <Link href="#" className="hover:underline text-white">
+                <Link href="#" className="hover:underline text-babypowder">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline text-white">
+                <Link href="#" className="hover:underline text-babypowder">
                   Terms of Service
                 </Link>
               </li>
