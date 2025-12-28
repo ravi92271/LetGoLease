@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// npx prisma validate -- To validate the database
+// npx prisma generate -- To generate the prisma client (client sync)
+// npx prisma migrate dev -- To run the migrations (dev only)
+// npx prisma migrate deploy -- To deploy the migrations (production)
+// npx prisma db push -- To push the schema to database (no migrations)
+// npx prisma db pull -- To pull the database schema (pull changes)
+// npx prisma studio -- To open the prisma studio
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
