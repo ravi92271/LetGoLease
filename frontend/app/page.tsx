@@ -46,7 +46,7 @@ function ImageCarousel() {
 
 export default function Home() {
   return (
-    <main className="bg-babypowder">
+    <main className="bg-babypowder font-manrope">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <header className="flex items-center justify-between py-4">
@@ -58,7 +58,7 @@ export default function Home() {
             className="rounded-full"
           />
           <Link href="/login">
-            <button className="bg-brightpink text-babypowder font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
+            <button className="bg-junglegreen text-babypowder font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
               Login
             </button>
           </Link>
@@ -77,7 +77,7 @@ export default function Home() {
                 verified.
               </p>
               <Link href="/main" className="flex space-x-4">
-                <button className="font-medium bg-brightpink text-babypowder cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
+                <button className="font-medium bg-junglegreen text-babypowder cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
                   Get Started
                 </button>
               </Link>
