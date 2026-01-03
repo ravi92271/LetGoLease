@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #fdfffc;
+}
+
+/* Theme Variables 
+
+  --color-yinmnblue: #404e7c; // Serious color (Footer, Nav, Headers, etc.)
+  --color-junglegreen: #49a078; // Trustworthy color (Buttons)
+  --color-rosequartz: #b392ac; // Soft accent color (Secondary button, links, etc.)
+  --color-brightpink: #ef476f; // High energy accent color (Warnings, delete, error, etc.)
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-babypowder: #fdfffc; 
+  --color-yinmnblue: #404e7c; 
+  --color-junglegreen: #49a078; 
+  --color-rosequartz: #b392ac; 
+  --color-brightpink: #ef476f;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(2%, -2%);
+  }
+  100% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+
+
+body {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+}
