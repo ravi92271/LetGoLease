@@ -1,0 +1,27 @@
+# docker-compose up
+# This command builds (use only if no code changes)
+
+# docker-compose up --build
+# This command builds (use only if code changes)
+
+version: "3.9"
+
+services:
+  main-app:
+    build: ./letgolease
+    ports: 
+      - "3000:3000"
+  database:
+    image: postgres:17
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes: 
+      - db_data:/var/lib/postgresql/data
+    
+
+volumes:
+  db_data:
