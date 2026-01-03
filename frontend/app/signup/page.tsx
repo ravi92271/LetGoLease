@@ -1,8 +1,26 @@
 "use client";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+type University = {
+  name: string;
+  domain: string[];
+};
 
 // Add logo at top left
 export default function SignUpPage() {
+  const [universities, setUniversity] = useState<University[]>([]);
+  const [school, setSchool] = useState<string>("");
+
+  useEffect(() => {
+    async function fetchUniversities() {
+      const response = await fetch("/api/universities");
+      const data = await response.json();
+      setUniversity(data);
+    }
+    fetchUniversities();
+  }, []);
+
   return (
     <main className="bg-babypowder">
       <section className="bg-white border border-yinmnblue/10 p-6 max-w-md mx-auto mt-35 rounded-lg shadow-lg">
@@ -44,6 +62,21 @@ export default function SignUpPage() {
                 ></input>
               </div>
             </div>
+            <label htmlFor="school" className="block mb-2 font-medium">
+              University
+            </label>
+            <input
+              list="universities"
+              value={school}
+              onChange={(e) => setSchool(e.target.value)}
+              placeholder="Select your university"
+              className="border px-3 py-2 w-full rounded"
+            />
+            <datalist id="universities">
+              {universities.map((u) => (
+                <option key={u.name} value={u.name} />
+              ))}
+            </datalist>
             <label htmlFor="email" className="block mb-2 font-medium">
               University Email Address
             </label>
@@ -70,12 +103,12 @@ export default function SignUpPage() {
             <p className="text-center py-2">
               By signing up, you agree to our{" "}
               <Link
-                href="/tos"
+                href="/termsofservice"
                 className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz mt-1.5"
               >
-                Terms of Service 
-              </Link>
-              {" "}and{" "}
+                Terms of Service
+              </Link>{" "}
+              and{" "}
               <Link
                 href="/privacypolicy"
                 className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz mt-1.5"
@@ -91,4 +124,4 @@ export default function SignUpPage() {
   );
 }
 
-// By logging in, you agree to our Terms of Service and Privacy Policy.
+//Hipolabs Universities API

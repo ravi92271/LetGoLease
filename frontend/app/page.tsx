@@ -63,11 +63,8 @@ export default function Home() {
             </button>
           </Link>
         </header>
-
-        {/* Hero Section */}
         <section className="py-12 md:pt-12 md:pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            {/* Text Section */}
             <div className="flex flex-col items-center max-w-[55ch] space-y-5">
               <h1 className="text-4xl font-semibold">
                 Student Lease Transfers, Made Simple
@@ -82,7 +79,6 @@ export default function Home() {
                 </button>
               </Link>
             </div>
-
             {/* Image Carousel */}
             <div className="w-full">
               <ImageCarousel />
@@ -90,8 +86,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      {/* Footer */}
       <footer className="bg-yinmnblue py-13">
         <div className="flex items-center justify-between max-w-[1400px] mx-auto px-6">
           <div>
@@ -111,12 +105,12 @@ export default function Home() {
             <h3 className="font-semibold text-babypowder mb-2">Legal</h3>
             <ul className="list-disc list-inside marker:text-babypowder">
               <li>
-                <Link href="#" className="hover:underline text-babypowder">
+                <Link href="/privacypolicy" className="hover:underline text-babypowder">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline text-babypowder">
+                <Link href="/termsofservice" className="hover:underline text-babypowder">
                   Terms of Service
                 </Link>
               </li>
@@ -127,3 +121,5 @@ export default function Home() {
     </main>
   );
 }
+
+// https://nextjs.org/docs/app/guides/redirecting
