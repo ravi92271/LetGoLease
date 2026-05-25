@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-oxford-navy-50: #ecf1f9;
+  --color-oxford-navy-100: #d8e4f3;
+  --color-oxford-navy-200: #b1c8e7;
+  --color-oxford-navy-300: #8badda;
+  --color-oxford-navy-400: #6492ce;
+  --color-oxford-navy-500: #3d77c2;
+  --color-oxford-navy-600: #315f9b;
+  --color-oxford-navy-700: #254774;
+  --color-oxford-navy-800: #182f4e;
+  --color-oxford-navy-900: #0c1827;
+  --color-oxford-navy-950: #09111b;
+
+  --color-jungle-teal-50: #ecf8f3;
+  --color-jungle-teal-100: #daf1e7;
+  --color-jungle-teal-200: #b5e3cf;
+  --color-jungle-teal-300: #8fd6b7;
+  --color-jungle-teal-400: #6ac89f;
+  --color-jungle-teal-500: #45ba87;
+  --color-jungle-teal-600: #37956c;
+  --color-jungle-teal-700: #297051;
+  --color-jungle-teal-800: #1c4a36;
+  --color-jungle-teal-900: #0e251b;
+  --color-jungle-teal-950: #0a1a13;
+
+  --color-cool-horizon-50: #eaf3fa;
+  --color-cool-horizon-100: #d6e6f5;
+  --color-cool-horizon-200: #adcdeb;
+  --color-cool-horizon-300: #84b4e1;
+  --color-cool-horizon-400: #5b9bd7;
+  --color-cool-horizon-500: #3282cd;
+  --color-cool-horizon-600: #2868a4;
+  --color-cool-horizon-700: #1e4e7b;
+  --color-cool-horizon-800: #143452;
+  --color-cool-horizon-900: #0a1a29;
+  --color-cool-horizon-950: #07121d;
+
+  --color-platinum-50: #eff2f5;
+  --color-platinum-100: #dfe4ec;
+  --color-platinum-200: #c0cad8;
+  --color-platinum-300: #a0afc5;
+  --color-platinum-400: #8194b1;
+  --color-platinum-500: #61799e;
+  --color-platinum-600: #4e617e;
+  --color-platinum-700: #3a495f;
+  --color-platinum-800: #27313f;
+  --color-platinum-900: #131820;
+  --color-platinum-950: #0e1116;
+
+  --color-mint-cream-50: #eef6f0;
+  --color-mint-cream-100: #deede0;
+  --color-mint-cream-200: #bcdcc2;
+  --color-mint-cream-300: #9bcaa3;
+  --color-mint-cream-400: #79b985;
+  --color-mint-cream-500: #58a766;
+  --color-mint-cream-600: #468652;
+  --color-mint-cream-700: #35643d;
+  --color-mint-cream-800: #234329;
+  --color-mint-cream-900: #122114;
+  --color-mint-cream-950: #0c170e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(2%, -2%);
+  }
+  100% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+
+
+body {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+}
+
