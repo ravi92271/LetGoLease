@@ -4,13 +4,16 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const IMAGES = [
-  "/portal_images/apartment1.jpg",
-  "/portal_images/apartment2.JPG",
-  "/portal_images/apartment3.JPG",
-  "/portal_images/apartment4.JPG",
-  "/portal_images/apartment5.JPG",
-  "/portal_images/apartment6.JPG",
+  "/portal/apartment1.jpg",
+  "/portal/apartment2.JPG",
+  "/portal/apartment3.JPG",
+  "/portal/apartment4.JPG",
+  "/portal/apartment5.JPG",
+  "/portal/apartment6.JPG",
 ] as const;
+
+console.log(IMAGES)
+console.log(IMAGES.length)
 
 function ImageCarousel() {
   const [image, setImage] = useState(0);
@@ -23,7 +26,7 @@ function ImageCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-2xl aspect-[3/2] overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full max-w-2xl aspect-3/2 overflow-hidden rounded-lg shadow-lg">
       {IMAGES.map((src, index) => (
         <div
           key={index + src}
@@ -37,6 +40,7 @@ function ImageCarousel() {
             fill
             priority={index === 0}
             className="object-cover animate-kenburns"
+            sizes="(max-width: 768px) 100vw, 672px"
           />
         </div>
       ))}
@@ -46,19 +50,19 @@ function ImageCarousel() {
 
 export default function Home() {
   return (
-    <main className="bg-babypowder font-manrope">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <main className="bg-mint-cream-50 font-manrope">
+      <div className="max-w-1400px mx-auto px-6">
         {/* Header */}
         <header className="flex items-center justify-between py-4">
           <Image
-            src="/portal_images/apartment1.jpg" // TODO: add logo path
+            src="/portal/apartment1.jpg" // TODO: add logo path
             alt="Leaser Logo"
             width={75}
             height={75}
             className="rounded-full"
           />
           <Link href="/login">
-            <button className="bg-junglegreen text-babypowder font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
+            <button className="bg-jungle-teal-500 text-mint-cream-50 font-medium cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-4 py-1">
               Login
             </button>
           </Link>
@@ -74,7 +78,7 @@ export default function Home() {
                 verified.
               </p>
               <Link href="/main" className="flex space-x-4">
-                <button className="font-medium bg-junglegreen text-babypowder cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
+                <button className="font-medium bg-jungle-teal-500 text-mint-cream-50 cursor-pointer hover:scale-105 transition-transform duration-200 rounded-full px-7 py-1">
                   Get Started
                 </button>
               </Link>
@@ -86,31 +90,31 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <footer className="bg-yinmnblue py-13">
-        <div className="flex items-center justify-between max-w-[1400px] mx-auto px-6">
+      <footer className="bg-cool-horizon-700 py-13">
+        <div className="flex items-center justify-between max-w-1400px mx-auto px-6">
           <div>
             <ul>
-              <h3 className="text-babypowder font-extrabold text-xl">
+              <h3 className="text-mint-cream-50 font-extrabold text-xl">
                 LetGoLease
               </h3>
-              <p className="text-babypowder">
+              <p className="text-mint-cream-50">
                 Student Lease Transfers, Made Simple
               </p>
-              <p className="text-babypowder">
+              <p className="text-mint-cream-50">
                 &copy; 2025 LetGoLease. All rights reserved.
               </p>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-babypowder mb-2">Legal</h3>
-            <ul className="list-disc list-inside marker:text-babypowder">
+            <h3 className="font-semibold text-mint-cream-50 mb-2">Legal</h3>
+            <ul className="list-disc list-inside marker:text-mint-cream-50">
               <li>
-                <Link href="/privacypolicy" className="hover:underline text-babypowder">
+                <Link href="/privacypolicy" className="hover:underline text-mint-cream-50">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/termsofservice" className="hover:underline text-babypowder">
+                <Link href="/termsofservice" className="hover:underline text-mint-cream-50">
                   Terms of Service
                 </Link>
               </li>

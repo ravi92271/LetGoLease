@@ -5,15 +5,15 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <main className="bg-babypowder"> 
-      <section className="bg-white border border-yinmnblue/10 p-6 max-w-md mx-auto mt-40 rounded-lg shadow-lg">
+    <main className="bg-mint-cream-50 min-h-screen flex items-center justify-center py-10">
+      <section className="bg-white border border-platinum-200 p-6 max-w-md w-full mx-auto rounded-lg shadow-lg">
         <header className="space-y-3">
           <h1 className="text-4xl font-semibold font-manrope">Welcome back</h1>
           <p>
             Don't have an account?{" "}
             <Link
               href="/signup"
-              className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz"
+              className="text-jungle-teal-600 font-medium hover:underline cursor-pointer visited:text-jungle-teal-600"
             >
               Create an account
             </Link>
@@ -41,12 +41,12 @@ export default function LoginPage() {
             />
           </div>
           <div className="flex flex-col items-center">
-            <button className="bg-junglegreen text-babypowder mt-3 px-3 py-2 w-full rounded-sm">
+            <button className="bg-jungle-teal-500 text-mint-cream-50 mt-3 px-3 py-2 w-full rounded-sm">
               Log in
             </button>
             <Link
               href="/resetpassword"
-              className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz mt-1.5 text-center"
+              className="text-jungle-teal-600 font-medium hover:underline cursor-pointer visited:text-jungle-teal-600 mt-1.5 text-center"
             >
               Forgot password?
             </Link>

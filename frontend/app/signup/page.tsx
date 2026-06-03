@@ -22,15 +22,15 @@ export default function SignUpPage() {
   }, []);
 
   return (
-    <main className="bg-babypowder">
-      <section className="bg-white border border-yinmnblue/10 p-6 max-w-md mx-auto mt-35 rounded-lg shadow-lg">
+    <main className="bg-mint-cream-50 min-h-screen flex items-center justify-center py-10">
+      <section className="bg-white border border-platinum-200 p-6 max-w-md w-full mx-auto rounded-lg shadow-lg">
         <header className="space-y-3">
           <h1 className="text-4xl font-semibold font-manrope">Sign up</h1>
           <p>
             Already have an account?{" "}
             <Link
               href="/login"
-              className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz"
+              className="text-jungle-teal-600 font-medium hover:underline cursor-pointer visited:text-jungle-teal-600"
             >
               Log in
             </Link>
@@ -97,21 +97,21 @@ export default function SignUpPage() {
             />
           </div>
           <div className="flex flex-col items-center">
-            <button className="bg-junglegreen text-babypowder mt-3 px-3 py-2 w-full rounded-sm">
+            <button className="bg-jungle-teal-500 text-mint-cream-50 mt-3 px-3 py-2 w-full rounded-sm">
               Sign up
             </button>
             <p className="text-center py-2">
               By signing up, you agree to our{" "}
               <Link
                 href="/termsofservice"
-                className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz mt-1.5"
+                className="text-jungle-teal-600 font-medium hover:underline cursor-pointer visited:text-jungle-teal-600 mt-1.5"
               >
                 Terms of Service
               </Link>{" "}
               and{" "}
               <Link
                 href="/privacypolicy"
-                className="text-rosequartz font-medium hover:underline cursor-pointer visited:text-rosequartz mt-1.5"
+                className="text-jungle-teal-600 font-medium hover:underline cursor-pointer visited:text-jungle-teal-600 mt-1.5"
               >
                 Privacy Policy.
               </Link>
