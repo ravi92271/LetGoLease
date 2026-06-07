@@ -12,9 +12,6 @@ const IMAGES = [
   "/portal/apartment6.JPG",
 ] as const;
 
-console.log(IMAGES)
-console.log(IMAGES.length)
-
 function ImageCarousel() {
   const [image, setImage] = useState(0);
 
